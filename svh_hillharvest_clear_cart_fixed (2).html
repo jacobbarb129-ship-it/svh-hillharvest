@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover seasonal fruits, hill-grown garlic, honey, chocolates and fresh produce from a family business in Kodaikanal, Tamil Nadu.">
+  <meta name="theme-color" content="#173d2b">
+  <title>SVH HillHarvest | From Kodaikanal to Your Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #173d2b; --green-dark: #102d20; --green-soft: #e7eee7;
+      --cream: #fbf8f0; --paper: #fffdf8; --ink: #202820; --muted: #657166;
+      --clay: #b86d43; --line: #e5e4da; --radius: 20px; --shadow: 0 12px 35px rgba(24,49,34,.08);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: "DM Sans", sans-serif; line-height: 1.65; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .announcement { padding: 8px 16px; text-align: center; background: var(--green-dark); color: #f8f4e8; font-size: .78rem; letter-spacing: .04em; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(251,248,240,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(23,61,43,.08); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+    .brand-mark { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; background: var(--green); color: white; font-size: 1.25rem; flex: 0 0 auto; }
+    .brand-name { display: block; color: var(--green); font: 600 1.12rem/1.2 "Playfair Display", serif; }
+    .brand-sub { display: block; color: var(--muted); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { font-size: .88rem; text-decoration: none; color: #465448; }
+    .nav-links a:hover { color: var(--clay); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 19px; border-radius: 999px; border: 1px solid transparent; font-weight: 700; font-size: .88rem; text-decoration: none; cursor: pointer; transition: .2s ease; }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .btn-light { background: var(--paper); color: var(--green); }
+    .btn-outline { border-color: rgba(255,255,255,.65); color: white; background: transparent; }
+    .menu-toggle { display: none; border: 1px solid var(--line); border-radius: 10px; background: white; padding: 8px 11px; color: var(--green); }
+    .hero { position: relative; isolation: isolate; min-height: 620px; display: flex; align-items: center; color: white; background: var(--green); overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(12,37,25,.88), rgba(12,37,25,.56) 58%, rgba(12,37,25,.22)), url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=2000&q=85") center/cover; }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 100px; z-index: -1; background: linear-gradient(transparent, rgba(12,37,25,.28)); }
+    .hero-content { padding-block: 90px; max-width: 760px; }
+    .eyebrow { text-transform: uppercase; font-size: .74rem; font-weight: 700; letter-spacing: .16em; color: var(--clay); }
+    .hero .eyebrow { color: #f2c69b; }
+    h1,h2,h3 { font-family: "Playfair Display", serif; font-weight: 600; line-height: 1.15; margin: 0; }
+    h1 { font-size: clamp(2.7rem, 6vw, 5rem); letter-spacing: -.035em; margin: 18px 0; max-width: 780px; }
+    h2 { color: var(--green); font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.025em; }
+    h3 { color: var(--green); font-size: 1.45rem; }
+    .hero p { font-size: clamp(1rem, 2vw, 1.15rem); max-width: 650px; color: rgba(255,255,255,.9); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .trust-strip { background: #f0eee5; border-bottom: 1px solid var(--line); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding-block: 22px; }
+    .trust-item { display: flex; gap: 10px; align-items: center; font-size: .87rem; font-weight: 600; color: var(--green); }
+    .trust-icon { width: 35px; height: 35px; display: grid; place-items: center; border-radius: 50%; background: white; }
+    section { padding-block: 88px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 32px; }
+    .section-heading p { max-width: 560px; color: var(--muted); margin: 12px 0 0; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 25px 0 30px; }
+    .filter-btn { border: 1px solid var(--line); background: white; color: #455348; padding: 9px 15px; border-radius: 999px; cursor: pointer; font-size: .8rem; font-weight: 700; }
+    .filter-btn.active, .filter-btn:hover { background: var(--green); color: white; border-color: var(--green); }
+    .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+    .product-card { overflow: hidden; background: white; border: 1px solid rgba(23,61,43,.06); border-radius: var(--radius); box-shadow: 0 4px 18px rgba(24,49,34,.04); display: flex; flex-direction: column; }
+    .product-card[hidden] { display: none; }
+    .product-image { width: 100%; height: 230px; object-fit: cover; background: var(--green-soft); }
+    .product-content { padding: 22px; display: flex; flex: 1; flex-direction: column; }
+    .tag { display: inline-flex; align-self: flex-start; border-radius: 999px; padding: 5px 10px; background: var(--green-soft); color: var(--green); font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .product-content h3 { font-size: 1.35rem; margin: 13px 0 8px; }
+    .product-content p { color: var(--muted); font-size: .9rem; margin: 0 0 18px; }
+    .product-bottom { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .price { color: var(--green); font-weight: 700; font-size: .95rem; }
+    .price del { color: #777f75; font-weight: 500; font-size: .85rem; }
+    .small-btn { border: 0; background: var(--green); color: white; border-radius: 999px; padding: 10px 14px; font-size: .78rem; font-weight: 700; text-decoration: none; }
+    .cart-panel { margin: 24px 0 30px; padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 18px; }
+    .cart-head { display:flex; justify-content:space-between; align-items:center; gap:15px; flex-wrap:wrap; }
+    .cart-items { display:grid; gap:12px; margin:18px 0; }
+    .cart-row { display:grid; grid-template-columns: minmax(0,1fr) auto auto; gap:12px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); }
+    .cart-row small { display:block; color:var(--muted); }
+    .qty-control { display:flex; align-items:center; gap:8px; }
+    .qty-control button,.remove-item { border:1px solid var(--line); background:var(--cream); border-radius:8px; padding:5px 10px; cursor:pointer; color:var(--green); }
+    .cart-total { display:flex; justify-content:space-between; gap:15px; font-weight:700; color:var(--green); }
+    .cart-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .cart-add { display:inline-flex; margin-top:12px; border:1px solid var(--green); background:white; color:var(--green); border-radius:999px; padding:9px 13px; font-size:.78rem; font-weight:700; cursor:pointer; }
+    .trust-section { background:#fffdf8; }
+    .trust-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .trust-card { padding:25px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .trust-card p { color:var(--muted); margin-bottom:0; }
+    .story { background: #f1efe6; }
+    .story-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 55px; align-items: center; }
+    .story-copy p { color: var(--muted); }
+    .story-image { width: 100%; height: 480px; border-radius: 24px; object-fit: cover; }
+    .story-note { margin-top: 20px; padding: 18px 20px; border-left: 3px solid var(--clay); background: white; color: var(--green); font-family: "Playfair Display", serif; font-style: italic; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 35px; }
+    .step { padding: 24px; border-radius: 18px; background: white; border: 1px solid var(--line); }
+    .step-number { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--green); color: white; font-weight: 700; margin-bottom: 18px; }
+    .step p { color: var(--muted); font-size: .9rem; }
+    .order-band { background: var(--green); color: white; }
+    .order-band h2 { color: white; }
+    .order-band .section-heading p { color: rgba(255,255,255,.78); }
+    .order-box { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding: 28px; border-radius: 20px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.14); }
+    .order-box h3 { color: white; }
+    .order-box p { margin-bottom: 0; color: rgba(255,255,255,.78); }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 28px; }
+    .contact-details { display: grid; gap: 14px; align-content: start; }
+    .contact-card { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 19px; }
+    .contact-card strong { display: block; color: var(--green); margin-bottom: 4px; }
+    .contact-card span { color: var(--muted); font-size: .9rem; overflow-wrap: anywhere; }
+    .form-card { background: white; border: 1px solid var(--line); border-radius: 20px; padding: clamp(22px,4vw,36px); }
+    .form-card > p { color: var(--muted); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    label { display: block; font-size: .8rem; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    input, select, textarea { width: 100%; padding: 12px 13px; border: 1px solid #d9ddd5; border-radius: 10px; background: #fcfbf7; color: var(--ink); }
+    textarea { resize: vertical; min-height: 115px; }
+    .field { margin-bottom: 15px; }
+    .form-note { color: var(--muted); font-size: .78rem; }
+    footer { background: #eae9df; padding: 48px 0 22px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 35px; padding-bottom: 35px; }
+    footer p, footer li { color: var(--muted); font-size: .88rem; }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer li { margin: 7px 0; }
+    footer a { text-decoration: none; }
+    .footer-bottom { border-top: 1px solid #d7d8ce; padding-top: 18px; display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: .78rem; }
+    @media (max-width: 980px) {
+      .nav-links { display: none; position: absolute; top: 78px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--line); padding: 20px; flex-direction: column; align-items: stretch; gap: 15px; }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: inline-flex; }
+      .nav > .btn { display: none; }
+      .trust-grid { grid-template-columns: repeat(2,1fr); }
+      .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .steps-grid { grid-template-columns: repeat(2,1fr); }
+      .story-grid, .contact-grid { grid-template-columns: 1fr; }
+      .trust-cards { grid-template-columns:1fr; }
+      .story-image { height: 360px; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .announcement { font-size: .68rem; }
+      .nav { min-height: 70px; }
+      .brand-name { font-size: 1rem; }
+      .brand-sub { font-size: .58rem; }
+      .brand-mark { width: 38px; height: 38px; }
+      .hero { min-height: 570px; }
+      .hero-content { padding-block: 68px; }
+      h1 { font-size: clamp(2.5rem, 12vw, 3.6rem); }
+      section { padding-block: 62px; }
+      .section-heading { display: block; }
+      .trust-grid { gap: 14px 8px; }
+      .trust-item { font-size: .76rem; align-items: flex-start; }
+      .trust-icon { flex: 0 0 auto; }
+      .product-grid, .steps-grid, .form-grid { grid-template-columns: 1fr; }
+      .cart-row { grid-template-columns:1fr auto; }
+      .cart-row .qty-control { grid-column:1; }
+      .cart-row .remove-item { grid-column:2; grid-row:1 / span 2; }
+      .product-image { height: 245px; }
+      .order-box { flex-direction: column; align-items: flex-start; }
+      .order-box .btn { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-bottom { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Fresh seasonal produce from the hills of Kodaikanal, Tamil Nadu</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="SVH HillHarvest home">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span><span class="brand-name">SVH HillHarvest</span><span class="brand-sub">Kodaikanal · Tamil Nadu</span></span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#products">Products</a><a href="#why-us">Why us</a><a href="#story">Our Story</a><a href="#farm-to-home">How It Works</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary whatsapp-link" href="#" target="_blank" rel="noopener">Order on WhatsApp</a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation menu">Menu ☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="eyebrow">Family farm · Kodaikanal, Tamil Nadu</div>
+        <h1>From the hills of Kodaikanal to your home.</h1>
+        <p>Discover our seasonal selection of avocados, hill-grown garlic, honey, chocolates, fruits and vegetables. Get in touch to check what's available and arrange an order directly with our family.</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="#products">Explore our products ↓</a>
+          <a class="btn btn-outline whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this season's harvest</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-icon">🌱</span><span>Seasonal produce</span></div>
+        <div class="trust-item"><span class="trust-icon">🏡</span><span>Family-run business</span></div>
+        <div class="trust-item"><span class="trust-icon">📦</span><span>Availability confirmed before dispatch</span></div>
+        <div class="trust-item"><span class="trust-icon">💬</span><span>Direct customer enquiries</span></div>
+      </div>
+    </div>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-heading">
+          <div><div class="eyebrow">Our selection</div><h2>Good things from the hills</h2><p>Our selection changes with the season. Message us to confirm current stock, sizes, prices and delivery options.</p></div>
+        </div>
+        <div class="filters" aria-label="Filter products">
+          <button class="filter-btn active" data-filter="all" type="button">All products</button>
+          <button class="filter-btn" data-filter="fruit" type="button">Fruits & vegetables</button>
+          <button class="filter-btn" data-filter="farm" type="button">Farm produce</button>
+          <button class="filter-btn" data-filter="honey" type="button">Honey</button>
+          <button class="filter-btn" data-filter="chocolate" type="button">Chocolates</button>
+        </div>
+        <div class="cart-panel" id="cart-panel" aria-labelledby="cart-title">
+          <div class="cart-head"><div><div class="eyebrow">Your selection</div><h3 id="cart-title">Shopping cart <span id="cart-count">(0)</span></h3></div><button class="filter-btn" id="clear-cart" type="button">Clear cart</button></div>
+          <p id="cart-empty" class="form-note">Add products below to prepare one combined order request.</p>
+          <div class="cart-items" id="cart-items" aria-live="polite"></div>
+          <div class="cart-total"><span>Subtotal for fixed-price items</span><span id="cart-total">₹0</span></div>
+          <p class="form-note">Quotation-based items are not included in the subtotal. Final availability, delivery charges and total will be confirmed by our family.</p>
+          <div class="cart-actions"><button class="btn btn-primary" id="checkout-whatsapp" type="button">Proceed to WhatsApp ↗</button></div>
+        </div>
+        <div class="product-grid" id="product-grid">
+          <article class="product-card" data-category="fruit">
+            <img class="product-image" src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=900&q=80" alt="Fresh avocados" loading="lazy">
+            <div class="product-content"><span class="tag">27% OFF</span><h3>Avocado / Butter Fruit</h3><p>Fresh, creamy avocados selected from our family farm and trusted local growers in the Kodaikanal hills.</p><div class="product-bottom"><span class="price"><del>₹450</del> &nbsp; ₹329/kg</span><a class="small-btn product-order" data-product="Avocado / Butter Fruit — ₹329 per kg" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="farm">
+            <img class="product-image" src="https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=900&q=80" alt="Medium hill garlic" loading="lazy">
+            <div class="product-content"><span class="tag">12% OFF</span><h3>Hill Garlic — Medium</h3><p>Medium-sized hill garlic, carefully selected for everyday cooking.</p><div class="product-bottom"><span class="price"><del>₹429</del> &nbsp; ₹379/kg</span><a class="small-btn product-order" data-product="Hill Garlic — Medium — ₹379 per kg" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="farm">
+            <img class="product-image" src="https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=900&q=80" alt="Small hill garlic" loading="lazy">
+            <div class="product-content"><span class="tag">24% OFF</span><h3>Hill Garlic — Small</h3><p>Small-sized hill garlic, valued for its distinctive aroma and flavour.</p><div class="product-bottom"><span class="price"><del>₹300</del> &nbsp; ₹229/kg</span><a class="small-btn product-order" data-product="Hill Garlic — Small — ₹229 per kg" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="farm">
+            <img class="product-image" src="https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=900&q=80" alt="Large hill garlic" loading="lazy">
+            <div class="product-content"><span class="tag">8% OFF</span><h3>Hill Garlic — Big</h3><p>Large hill garlic bulbs, selected for their rich flavour and versatile use in the kitchen.</p><div class="product-bottom"><span class="price"><del>₹500</del> &nbsp; ₹459/kg</span><a class="small-btn product-order" data-product="Hill Garlic — Big — ₹459 per kg" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="farm">
+            <img class="product-image" src="https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=900&q=80" alt="Single clove garlic" loading="lazy">
+            <div class="product-content"><span class="tag">10% OFF</span><h3>Single Clove Garlic</h3><p>Distinctive single-clove garlic, selected for its convenient size and bold garlic flavour.</p><div class="product-bottom"><span class="price"><del>₹550</del> &nbsp; ₹495/kg</span><a class="small-btn product-order" data-product="Single Clove Garlic — ₹495 per kg" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="farm">
+            <img class="product-image" src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=900&q=80" alt="Cow ghee" loading="lazy">
+            <div class="product-content"><span class="tag">8% OFF</span><h3>Cow Ghee — 1 litre</h3><p>Traditional cow ghee selected with care for everyday cooking and authentic recipes.</p><div class="product-bottom"><span class="price"><del>₹1,200</del> &nbsp; ₹1,099/litre</span><a class="small-btn product-order" data-product="Cow Ghee — 1 litre — ₹1,099" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="honey">
+            <img class="product-image" src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=900&q=80" alt="Jar of honey" loading="lazy">
+            <div class="product-content"><span class="tag">Quotation required</span><h3>Honey</h3><p>Honey sourced with care, bringing natural sweetness to your table. Ask us about varieties, sizes and prices.</p><div class="product-bottom"><span class="price">Enquire for quotation</span><a class="small-btn product-order" data-product="Honey — please provide a quotation and available sizes" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="chocolate">
+            <img class="product-image" src="https://images.pexels.com/photos/4113364/pexels-photo-4113364.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Dark chocolate pieces" loading="lazy">
+            <div class="product-content"><span class="tag">Quotation required</span><h3>Dark Chocolate</h3><p>A rich dark chocolate option for those who enjoy a deeper cocoa flavour. Ask us about ingredients, sizes and pricing.</p><div class="product-bottom"><span class="price">Enquire for quotation</span><a class="small-btn product-order" data-product="Dark Chocolate — please provide a quotation and available sizes" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="chocolate">
+            <img class="product-image" src="https://images.pexels.com/photos/4113341/pexels-photo-4113341.jpeg?auto=compress&cs=tinysrgb&w=900" alt="White chocolate pieces" loading="lazy">
+            <div class="product-content"><span class="tag">Quotation required</span><h3>White Chocolate</h3><p>Smooth, creamy white chocolate for a sweet treat. Ask us about ingredients, sizes and pricing.</p><div class="product-bottom"><span class="price">Enquire for quotation</span><a class="small-btn product-order" data-product="White Chocolate — please provide a quotation and available sizes" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="fruit">
+            <img class="product-image" src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=900&q=80" alt="Assorted fresh fruits" loading="lazy">
+            <div class="product-content"><span class="tag">Seasonal</span><h3>Seasonal Fruits & Vegetables</h3><p>A changing selection of seasonal produce, including plums and passion fruit, depending on availability.</p><div class="product-bottom"><span class="price">Enquire for quotation</span><a class="small-btn product-order" data-product="Seasonal fruits and vegetables — please provide a quotation for available produce" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+          <article class="product-card" data-category="farm">
+            <img class="product-image" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=80" alt="Eucalyptus oil bottle with botanical leaves" loading="lazy">
+            <div class="product-content"><span class="tag">Quotation required</span><h3>Eucalyptus Oil</h3><p>Eucalyptus oil available on request. Please enquire for product details, bottle sizes and pricing.</p><div class="product-bottom"><span class="price">Enquire for quotation</span><a class="small-btn product-order" data-product="Eucalyptus Oil — please provide a quotation and available bottle sizes" href="#" target="_blank" rel="noopener">Enquire ↗</a></div><button class="cart-add" type="button" data-cart-add>Add to cart +</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section" id="why-us">
+      <div class="container">
+        <div class="section-heading"><div><div class="eyebrow">Why SVH HillHarvest</div><h2>Rooted in the hills. Chosen with care.</h2></div></div>
+        <div class="trust-cards">
+          <article class="trust-card"><h3>Family-owned, hill-grown</h3><p>A family business near Kodaikanal, bringing together our own produce and selected products from local farmers.</p></article>
+          <article class="trust-card"><h3>Quality you can trust</h3><p>Carefully selected products with a focus on quality, freshness and flavour.</p></article>
+          <article class="trust-card"><h3>Personal service, direct to you</h3><p>Order through WhatsApp, with delivery arrangements tailored to your location and product availability.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="container story-grid">
+        <div class="story-copy">
+          <div class="eyebrow">Our story</div>
+          <h2>A family business rooted in Kodaikanal</h2>
+          <p>Welcome to SVH HillHarvest, a family-run business based in the hills near Kodaikanal, Tamil Nadu.</p>
+          <p>We bring together a selection of hill-grown produce and food products, including avocados, hill garlic, honey, chocolates and seasonal fruits and vegetables. Some of our produce comes from our own family growing activities, while other products are sourced from local producers.</p>
+          <p>We aim to provide clear product information, careful packing and personal service. Contact us to check availability, confirm prices and discuss delivery options across Tamil Nadu.</p>
+          <div class="story-note">“From our family to your home, with care from the Kodaikanal hills.”</div>
+        </div>
+        <div>
+          <img class="story-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85" alt="Green agricultural fields in a hilly landscape" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="farm-to-home">
+      <div class="container">
+        <div class="section-heading"><div><div class="eyebrow">Simple and personal</div><h2>From enquiry to delivery</h2><p>We'll confirm product availability, price and delivery details with you before an order is finalised.</p></div></div>
+        <div class="steps-grid">
+          <article class="step"><div class="step-number">1</div><h3>Browse</h3><p>Explore the products listed on the website.</p></article>
+          <article class="step"><div class="step-number">2</div><h3>Ask us</h3><p>Send a WhatsApp message about the product and quantity you want.</p></article>
+          <article class="step"><div class="step-number">3</div><h3>Confirm details</h3><p>We confirm price, availability, delivery location and timing.</p></article>
+          <article class="step"><div class="step-number">4</div><h3>Arrange delivery</h3><p>UPI and bank transfer are available for serviceable locations. Cash on delivery is available only in Chennai and Kodaikanal.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-band">
+      <div class="container">
+        <div class="section-heading"><div><div class="eyebrow" style="color:#f2c69b">Talk directly to us</div><h2>Want to know what's available?</h2><p>Send us a message and we'll get back to you with current products, prices and delivery options.</p></div></div>
+        <div class="order-box"><div><h3>Order enquiries via WhatsApp</h3><p>No online checkout required to get started.</p></div><a class="btn btn-light whatsapp-link" href="#" target="_blank" rel="noopener">Message the farm ↗</a></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading"><div><div class="eyebrow">Get in touch</div><h2>Contact our family</h2><p>For product enquiries, bulk orders or delivery questions, contact us by WhatsApp or email. We may not be available for phone calls.</p></div></div>
+        <div class="contact-grid">
+          <div class="contact-details">
+            <div class="contact-card"><strong>WhatsApp</strong><span id="contact-whatsapp">Message us on WhatsApp for product enquiries and orders.</span></div>
+            <div class="contact-card"><strong>Email</strong><span id="contact-email">vijayashreeharish77@gmail.com</span></div>
+            <div class="contact-card"><strong>Location</strong><span id="contact-location">Prakasapuram, near Kodaikanal, Dindigul District, Tamil Nadu, India</span></div>
+            <div class="contact-card"><strong>Delivery</strong><span id="contact-delivery">Delivery across Tamil Nadu, subject to availability and confirmation of charges.</span></div>
+            <div class="contact-card"><strong>Payment options</strong><span>UPI and bank transfer for serviceable locations. Cash on delivery is available only in Chennai and Kodaikanal.</span></div>
+          </div>
+          <div class="form-card">
+            <h3>Send an enquiry</h3>
+            <p>This form opens WhatsApp with your message prepared. It does not store or send customer details to a website server.</p>
+            <form id="enquiry-form">
+              <div class="form-grid">
+                <div class="field"><label for="customer-name">Your name</label><input id="customer-name" name="name" autocomplete="name" required placeholder="Your name"></div>
+                <div class="field"><label for="customer-city">Delivery city / PIN code</label><input id="customer-city" name="city" required placeholder="City or PIN code"></div>
+              </div>
+              <div class="form-grid">
+                <div class="field"><label for="customer-interest">I'm interested in</label><select id="customer-interest" name="interest"><option>Avocados</option><option>Hill-grown garlic</option><option>Cow ghee</option><option>Honey</option><option>Dark chocolate</option><option>White chocolate</option><option>Seasonal fruits and vegetables, including plums and passion fruit, subject to availability</option><option>Eucalyptus oil</option><option>Bulk / gifting enquiry</option><option>Other</option></select></div>
+                <div class="field"><label for="customer-email">Your email (optional)</label><input id="customer-email" name="email" autocomplete="email" type="email" placeholder="Your email address"></div>
+              </div>
+              <div class="field"><label for="customer-message">Message</label><textarea id="customer-message" name="message" required placeholder="Tell us what you'd like to order or ask..."></textarea></div>
+              <button class="btn btn-primary" type="submit">Prepare WhatsApp enquiry ↗</button>
+              <p class="form-note">Your WhatsApp app or WhatsApp Web will open so you can review and send the message yourself.</p>
+              <p id="form-error" class="form-note" role="alert" hidden></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="#home"><span class="brand-mark">🌿</span><span><span class="brand-name">SVH HillHarvest</span><span class="brand-sub">Kodaikanal · Tamil Nadu</span></span></a><p>A family business sharing seasonal produce and food products from the Kodaikanal region. Contact us to confirm availability and delivery details.</p></div>
+        <div><h3>Explore</h3><ul><li><a href="#products">Products</a></li><li><a href="#story">Our story</a></li><li><a href="#farm-to-home">How it works</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div><h3>Before you order</h3><p>UPI and bank transfer are available for serviceable locations; cash on delivery is limited to Chennai and Kodaikanal. Delivery across Tamil Nadu depends on availability and feasibility. Charges are confirmed before an order is finalised.</p></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> SVH HillHarvest. All rights reserved.</span><span>Made for a family business in Kodaikanal.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const FARM = {
+      name: "SVH HillHarvest",
+      whatsappNumber: "+91 8610770249",
+      email: "vijayashreeharish77@gmail.com",
+      location: "Prakasapuram, near Kodaikanal, Dindigul District, Tamil Nadu, India",
+      delivery: "Delivery across Tamil Nadu, subject to product availability and delivery feasibility. Charges are confirmed before finalising an order."
+    };
+
+    function whatsappUrl(message) {
+      const number = FARM.whatsappNumber.replace(/\D/g, "");
+      if (!number) return null;
+      return "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+    }
+
+    function setWhatsAppLinks() {
+      document.querySelectorAll(".whatsapp-link").forEach(link => {
+        const url = whatsappUrl("Hello " + FARM.name + ", I'd like to enquire about your current products, prices and delivery options.");
+        if (url) {
+          link.href = url;
+          link.setAttribute("aria-label", "Contact " + FARM.name + " on WhatsApp");
+        } else {
+          link.href = "#contact";
+          link.removeAttribute("target");
+          link.title = "Add the real WhatsApp number in the FARM settings at the bottom of this HTML file.";
+        }
+      });
+
+      document.querySelectorAll(".product-order").forEach(link => {
+        const product = link.dataset.product || "your products";
+        const url = whatsappUrl("Hello " + FARM.name + ", I'm interested in " + product + ". Please share current availability, pack sizes, prices and delivery options.");
+        if (url) link.href = url;
+        else link.href = "#contact";
+      });
+
+      document.getElementById("contact-whatsapp").textContent = "Message us on WhatsApp for product enquiries and orders.";
+      document.getElementById("contact-email").textContent = FARM.email;
+      document.getElementById("contact-location").textContent = FARM.location;
+      document.getElementById("contact-delivery").textContent = FARM.delivery;
+    }
+
+    // Cart values are explicit; quotation-based products have no assumed price.
+    const CART_PRODUCTS = [
+      {name:"Avocado / Butter Fruit", price:329, unit:"kg"},
+      {name:"Hill Garlic — Medium", price:379, unit:"kg"},
+      {name:"Hill Garlic — Small", price:229, unit:"kg"},
+      {name:"Hill Garlic — Big", price:459, unit:"kg"},
+      {name:"Single Clove Garlic", price:495, unit:"kg"},
+      {name:"Cow Ghee — 1 litre", price:1099, unit:"litre"},
+      {name:"Honey", price:null, unit:"quotation"},
+      {name:"Dark Chocolate", price:null, unit:"quotation"},
+      {name:"White Chocolate", price:null, unit:"quotation"},
+      {name:"Seasonal Fruits & Vegetables", price:null, unit:"quotation"},
+      {name:"Eucalyptus Oil", price:null, unit:"quotation"}
+    ];
+    const cart = new Map();
+    const money = value => "₹" + Number(value).toLocaleString("en-IN");
+    function renderCart() {
+      const items = document.getElementById("cart-items");
+      items.innerHTML = "";
+      let count = 0, total = 0;
+      cart.forEach((qty, name) => {
+        const product = CART_PRODUCTS.find(p => p.name === name);
+        if (!product) return;
+        count += qty;
+        if (product.price !== null) total += product.price * qty;
+        const row = document.createElement("div"); row.className = "cart-row";
+        const info = document.createElement("div");
+        info.innerHTML = "<strong></strong><small></small>";
+        info.querySelector("strong").textContent = name;
+        info.querySelector("small").textContent = product.price === null ? "Price on quotation" : money(product.price) + " / " + product.unit;
+        const controls = document.createElement("div"); controls.className = "qty-control";
+        const minus = document.createElement("button"); minus.type="button"; minus.textContent="−"; minus.setAttribute("aria-label","Decrease quantity of " + name);
+        const amount = document.createElement("span"); amount.textContent = qty;
+        const plus = document.createElement("button"); plus.type="button"; plus.textContent="+"; plus.setAttribute("aria-label","Increase quantity of " + name);
+        minus.addEventListener("click",()=>{ if(qty<=1) cart.delete(name); else cart.set(name,qty-1); renderCart(); });
+        plus.addEventListener("click",()=>{ cart.set(name,qty+1); renderCart(); });
+        controls.append(minus,amount,plus);
+        const remove = document.createElement("button"); remove.type="button"; remove.className="remove-item"; remove.textContent="Remove"; remove.addEventListener("click",()=>{cart.delete(name);renderCart();});
+        row.append(info,controls,remove); items.append(row);
+      });
+      document.getElementById("cart-count").textContent = "(" + count + ")";
+      document.getElementById("cart-total").textContent = money(total);
+      document.getElementById("cart-empty").hidden = cart.size > 0;
+    }
+    document.querySelectorAll("[data-cart-add]").forEach((button,index) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".product-card");
+        const name = card.querySelector("h3").textContent.trim();
+        const product = CART_PRODUCTS.find(p => p.name === name);
+        if (!product) return;
+        cart.set(name, (cart.get(name) || 0) + 1);
+        renderCart();
+        document.getElementById("cart-panel").scrollIntoView({behavior:"smooth",block:"nearest"});
+      });
+    });
+    document.getElementById("clear-cart").addEventListener("click",()=>{cart.clear();renderCart();});
+    document.getElementById("checkout-whatsapp").addEventListener("click",()=>{
+      if (!cart.size) { document.getElementById("cart-empty").textContent="Your cart is empty. Add at least one product before proceeding."; document.getElementById("cart-empty").hidden=false; return; }
+      const lines=[]; let total=0;
+      cart.forEach((qty,name)=>{ const p=CART_PRODUCTS.find(x=>x.name===name); const lineTotal=p.price===null?"price to be quoted":money(p.price*qty); lines.push("• "+name+" — Qty: "+qty+(p.price===null?"":" "+p.unit)+" — "+lineTotal); if(p.price!==null) total+=p.price*qty; });
+      const message="Hello "+FARM.name+", I'd like to enquire about this order:\n\n"+lines.join("\n")+"\n\nSubtotal for fixed-price items: "+money(total)+"\nPlease confirm availability, final total, delivery charges and estimated delivery.\nDelivery city/PIN: [please add]\nPreferred payment: UPI / bank transfer / COD if eligible.";
+      const url=whatsappUrl(message); if(url) window.open(url,"_blank","noopener,noreferrer");
+    });
+    renderCart();
+
+    document.querySelectorAll(".filter-btn[data-filter]").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn[data-filter]").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        const category = button.dataset.filter;
+        document.querySelectorAll(".product-card").forEach(card => {
+          card.hidden = !(category === "all" || card.dataset.category === category);
+        });
+      });
+    });
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.textContent = open ? "Close ✕" : "Menu ☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "Menu ☰";
+    }));
+
+    document.getElementById("enquiry-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const error = document.getElementById("form-error");
+      const form = event.currentTarget;
+      const url = whatsappUrl(
+        "Hello " + FARM.name + ", I'd like to make an enquiry.\n\n" +
+        "Name: " + form.elements.name.value.trim() + "\n" +
+        "Delivery city / PIN: " + form.elements.city.value.trim() + "\n" +
+        "Interested in: " + form.elements.interest.value + "\n" +
+        "Email: " + (form.elements.email.value.trim() || "Not provided") + "\n" +
+        "Message: " + form.elements.message.value.trim()
+      );
+      if (!url) {
+        error.hidden = false;
+        error.textContent = "Please contact us through the details shown on this page.";
+        return;
+      }
+      error.hidden = true;
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    setWhatsAppLinks();
+
+    document.querySelectorAll(".product-image").forEach(img => {
+      img.addEventListener("error", () => {
+        img.style.background = "#e7eee7";
+        img.style.objectFit = "contain";
+        img.removeAttribute("src");
+        img.alt = "Product illustration image unavailable";
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>
